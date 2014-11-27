@@ -248,8 +248,11 @@ Tracker.prototype._onSocketMessage = function (data) {
   if (data.answer) {
     peer = self._peers[data.offer_id]
     if (peer) {
+      peer.id = binaryToHex(data.peer_id)
       peer.signal(data.answer)
       self.client.emit('peer', peer)
+    } else {
+      debug('got unexpected answer: ' + JSON.stringify(data.answer))
     }
   }
 }
