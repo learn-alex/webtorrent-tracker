@@ -234,16 +234,12 @@ Tracker.prototype._onSocketMessage = function (data) {
       var opts = {
         info_hash: self.client._infoHash.toString('binary'),
         peer_id: self.client._peerId.toString('binary'),
-        to_peer_id: data.peer_id
-      }
-
-      if (self._trackerId)
-        opts.trackerid = self._trackerId
-
-      self._send(extend({
+        to_peer_id: data.peer_id,
         answer: answer,
         offer_id: data.offer_id
-      }, opts))
+      }
+      if (self._trackerId) opts.trackerid = self._trackerId
+      self._send(opts)
     })
     peer.signal(data.offer)
     self.client.emit('peer', peer)
