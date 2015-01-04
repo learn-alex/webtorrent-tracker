@@ -24,6 +24,7 @@ var sockets = {}
  * @param {Object} opts    optional options
  * @param {Number} opts.numWant    number of peers to request
  * @param {Number} opts.interval   interval in ms to send announce requests to the tracker
+ * @param {Number} opts.rtcConfig  RTCPeerConnection configuration object
  */
 function Client (peerId, torrent, opts) {
   var self = this
@@ -228,7 +229,7 @@ Tracker.prototype._onSocketMessage = function (data) {
 
   var peer
   if (data.offer) {
-    peer = new Peer({ trickle: false })
+    peer = new Peer({ trickle: false, config: self._opts.rtcConfig })
     peer.id = binaryToHex(data.peer_id)
     peer.once('signal', function (answer) {
       var opts = {
@@ -306,7 +307,11 @@ Tracker.prototype._generateOffers = function (cb) {
 
   function generateOffer () {
     var offerId = hat(160)
-    var peer = self._peers[offerId] = new Peer({ initiator: true, trickle: false })
+    var peer = self._peers[offerId] = new Peer({
+      initiator: true,
+      trickle: false,
+      config: self._opts.rtcConfig
+    })
     peer.once('signal', function (offer) {
       offers.push({
         offer: offer,
