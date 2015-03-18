@@ -24,10 +24,6 @@
     "xtend": "^4.0.0"
   },
   "devDependencies": {
-    "magnet-uri": "^4.0.0",
-    "parse-torrent": "^2.1.2",
-    "portfinder": "^0.3.0",
-    "tape": "^3.0.3"
   },
   "homepage": "http://webtorrent.io",
   "keywords": [
