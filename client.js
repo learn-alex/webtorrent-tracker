@@ -2,7 +2,7 @@ module.exports = Client
 
 var debug = require('debug')('webtorrent-tracker')
 var EventEmitter = require('events').EventEmitter
-var extend = require('extend.js')
+var extend = require('xtend')
 var hat = require('hat')
 var inherits = require('inherits')
 var Peer = require('simple-peer')
