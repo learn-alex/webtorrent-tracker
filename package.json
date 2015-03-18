@@ -1,7 +1,7 @@
 {
   "name": "webtorrent-tracker",
   "description": "WebTorrent tracker (client & server) implementation",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "author": {
     "name": "Feross Aboukhadijeh",
     "email": "feross@feross.org",
@@ -23,8 +23,7 @@
     "ws": "^0.7.1",
     "xtend": "^4.0.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "homepage": "http://webtorrent.io",
   "keywords": [
     "webtorrent",
