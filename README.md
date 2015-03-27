@@ -2,7 +2,7 @@
 
 ### WebTorrent tracker (client & server) implementation
 
-### THIS IS A WORK IN PROGRESS!
+### THIS MODULE IS DEPRECATED. webtorrent-tracker has merged into [bittorrent-tracker](https://github.com/feross/bittorrent-tracker). please use bittorrent-tracker >= 3.3.0 instead
 
 ![tracker](https://raw.githubusercontent.com/feross/webtorrent-tracker/master/img.png)
 
